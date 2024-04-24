@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter,  Routes, Route } from "react-router-dom";
 import Navigation from './komponenter/navigation';
 import Startsida from './pages/startsida';
 import Information from './pages/information';
@@ -7,8 +7,8 @@ import Todos from './pages/todos';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <BrowserRouter>
+    <div className="App">
         <header>
           <Navigation />
         </header>
@@ -18,7 +18,7 @@ function App() {
           <Route path="/todos" element={<Todos />} /> 
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
