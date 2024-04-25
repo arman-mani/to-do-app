@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './todos.css'; 
+import React, { useState, useEffect } from "react";
+import "./todos.css";
 
-const Todos = () => { 
+const Todos = () => {
   const [todos, setTodos] = useState([]);
-  const [todoInput, setTodoInput] = useState('');
+  const [todoInput, setTodoInput] = useState("");
 
   const addToLocalStorage = (todo) => {
-    const existingTodos = JSON.parse(localStorage.getItem('TODO_LIST')) || [];
+    const existingTodos = JSON.parse(localStorage.getItem("TODO_LIST")) || [];
     existingTodos.push(todo);
-    localStorage.setItem('TODO_LIST', JSON.stringify(existingTodos));
-  }
+    localStorage.setItem("TODO_LIST", JSON.stringify(existingTodos));
+  };
 
   const getFromLocalStorage = () => {
-    const storedTodos = JSON.parse(localStorage.getItem('TODO_LIST'));
+    const storedTodos = JSON.parse(localStorage.getItem("TODO_LIST"));
     return storedTodos || [];
-  }
+  };
 
   useEffect(() => {
     const storedTodos = getFromLocalStorage();
@@ -22,15 +22,15 @@ const Todos = () => {
   }, []);
 
   const allTodosCompleted = () => {
-    return todos.every(todo => todo.completed);
+    return todos.every((todo) => todo.completed);
   };
 
   const addTodo = () => {
-    if (todoInput.trim() !== '') {
+    if (todoInput.trim() !== "") {
       const newTodo = { text: todoInput, completed: false };
       setTodos([...todos, newTodo]);
-      addToLocalStorage(newTodo); 
-      setTodoInput('');
+      addToLocalStorage(newTodo);
+      setTodoInput("");
     }
   };
 
@@ -38,19 +38,19 @@ const Todos = () => {
     const updatedTodos = [...todos];
     updatedTodos.splice(index, 1);
     setTodos(updatedTodos);
-    localStorage.setItem('TODO_LIST', JSON.stringify(updatedTodos)); 
+    localStorage.setItem("TODO_LIST", JSON.stringify(updatedTodos));
   };
 
   const toggleComplete = (index) => {
     const updatedTodos = [...todos];
     updatedTodos[index].completed = !updatedTodos[index].completed;
     setTodos(updatedTodos);
-    localStorage.setItem('TODO_LIST', JSON.stringify(updatedTodos)); 
+    localStorage.setItem("TODO_LIST", JSON.stringify(updatedTodos));
   };
 
   const clearTodos = () => {
     setTodos([]);
-    localStorage.removeItem('TODO_LIST'); 
+    localStorage.removeItem("TODO_LIST");
   };
 
   return (
@@ -63,7 +63,9 @@ const Todos = () => {
         className="todo-input"
         placeholder="Skriv din uppgift här..."
       />
-      <button onClick={addTodo} className="todo-button">Lägg till</button>
+      <button onClick={addTodo} className="todo-button">
+        Lägg till
+      </button>
       <ul className="todo-list">
         {todos.map((todo, index) => (
           <li key={index} className="todo-item">
@@ -74,19 +76,25 @@ const Todos = () => {
                 onChange={() => toggleComplete(index)}
                 className="todo-checkbox"
               />
-              <span className={todo.completed ? 'completed' : ''}>{todo.text}</span>
+              <span className={todo.completed ? "completed" : ""}>
+                {todo.text}
+              </span>
             </label>
-            <button onClick={() => deleteTodo(index)} className="todo-button">Ta bort</button>
+            <button onClick={() => deleteTodo(index)} className="todo-button">
+              Ta bort
+            </button>
           </li>
         ))}
       </ul>
-      <button onClick={clearTodos} className="todo-button">Rensa alla</button>
-      
+      <button onClick={clearTodos} className="todo-button">
+        Rensa alla
+      </button>
+
       {todos.length > 0 && allTodosCompleted() && (
         <p>Du är färdig. Bra jobbat!</p>
       )}
     </div>
   );
-}
+};
 
 export default Todos;
