@@ -1,6 +1,6 @@
 nav {
     background-color: #c0c0c0; 
-    padding: 10px 0; 
+    padding: 15px 0; 
     text-align: center; 
   }
   
@@ -12,7 +12,7 @@ nav {
   
   nav li {
     display: inline-block; 
-    margin: 0 10px; 
+    margin: 0 15px; 
   }
   
   nav a {
@@ -20,7 +20,6 @@ nav {
     text-decoration: none; 
     padding-bottom: 2px; 
     border-bottom: 2px solid transparent; 
-    transition: border-color 0.3s ease; 
   }
   
   nav a:hover {
