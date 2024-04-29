@@ -1,5 +1,4 @@
-import React from "react";
-import "./information.css";
+import "./Information.css";
 
 const Information = () => {
   return (

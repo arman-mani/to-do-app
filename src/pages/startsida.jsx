@@ -1,5 +1,4 @@
-import React from "react";
-import "./startsida.css";
+import "./Startsida.css";
 
 const Startsida = () => {
   return (
