@@ -55,13 +55,13 @@ const Todos = () => {
 
   return (
     <div className="todo-container">
-      <h1 className="todo-heading">Att göra-lista</h1>
+      <h1 className="todo-heading">To-Do List</h1>
       <input
         type="text"
         value={todoInput}
         onChange={(e) => setTodoInput(e.target.value)}
         className="todo-input"
-        placeholder="Skriv din uppgift här..."
+        placeholder="Lägg till ny uppgift..."
       />
       <button onClick={addTodo} className="todo-button">
         Lägg till
@@ -80,13 +80,16 @@ const Todos = () => {
                 {todo.text}
               </span>
             </label>
-            <button onClick={() => deleteTodo(index)} className="todo-button">
+            <button
+              onClick={() => deleteTodo(index)}
+              className="todo-delete-button"
+            >
               Ta bort
             </button>
           </li>
         ))}
       </ul>
-      <button onClick={clearTodos} className="todo-button">
+      <button onClick={clearTodos} className="todo-button todo-clear-button">
         Rensa alla
       </button>
 
