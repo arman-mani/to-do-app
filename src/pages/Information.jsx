@@ -4,7 +4,7 @@ const Information = () => {
   return (
     <div className="information-container">
       <div className="information-content">
-        <h1>Om denna app:</h1>
+        <h1>Om denna app</h1>
         <div className="list-container">
           <p>
             Denna todo-app är min första React applikation och hjälper individer
